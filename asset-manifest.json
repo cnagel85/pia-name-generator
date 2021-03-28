@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/pia-name-generator/static/css/main.8b481686.chunk.css",
-    "main.js": "/pia-name-generator/static/js/main.19d63822.chunk.js",
-    "main.js.map": "/pia-name-generator/static/js/main.19d63822.chunk.js.map",
+    "main.js": "/pia-name-generator/static/js/main.08fdc005.chunk.js",
+    "main.js.map": "/pia-name-generator/static/js/main.08fdc005.chunk.js.map",
     "runtime-main.js": "/pia-name-generator/static/js/runtime-main.aa97d2e6.js",
     "runtime-main.js.map": "/pia-name-generator/static/js/runtime-main.aa97d2e6.js.map",
     "static/js/2.a046deb1.chunk.js": "/pia-name-generator/static/js/2.a046deb1.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.aa97d2e6.js",
     "static/js/2.a046deb1.chunk.js",
     "static/css/main.8b481686.chunk.css",
-    "static/js/main.19d63822.chunk.js"
+    "static/js/main.08fdc005.chunk.js"
   ]
 }
