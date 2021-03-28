@@ -63,7 +63,7 @@ function NameForm() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    history.push("/" + generateSlug(name, birthMonth, city));
+    history.push(generateSlug(name, birthMonth, city));
   }
 
   const birthMonthSelectStyles = {
