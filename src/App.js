@@ -106,7 +106,6 @@ export function Name() {
       <div className="container">
           <Dub name={getNameFromSlug(slug)} />
           <Link to="/" >Generate Another</Link>
-          <p>{name} {birthMonth} {city}</p>
       </div>
   )
 }
