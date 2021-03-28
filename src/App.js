@@ -3,6 +3,7 @@ import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
 import Dropdown from 'react-dropdown';
 
 import './App.css';
+import Logo from './scales.svg';
 import { generateSlug, decodeSlug, getNameFromSlug } from './slugs.js'
 import { monthsOptions } from './constants.js'
 
@@ -10,6 +11,7 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <img src={Logo} alt="Logo" height="128"/>
         <h1>Personal Injury Attorney Generator</h1>
       </header>
       <Switch>
