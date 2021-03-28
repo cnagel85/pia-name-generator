@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/pia-name-generator/static/css/main.5aff3aa8.chunk.css",
-    "main.js": "/pia-name-generator/static/js/main.089597bd.chunk.js",
-    "main.js.map": "/pia-name-generator/static/js/main.089597bd.chunk.js.map",
+    "main.js": "/pia-name-generator/static/js/main.1fa638e8.chunk.js",
+    "main.js.map": "/pia-name-generator/static/js/main.1fa638e8.chunk.js.map",
     "runtime-main.js": "/pia-name-generator/static/js/runtime-main.9f3b6dcb.js",
     "runtime-main.js.map": "/pia-name-generator/static/js/runtime-main.9f3b6dcb.js.map",
     "static/js/2.39dd6bc0.chunk.js": "/pia-name-generator/static/js/2.39dd6bc0.chunk.js",
@@ -11,12 +11,13 @@
     "static/js/3.e019115b.chunk.js.map": "/pia-name-generator/static/js/3.e019115b.chunk.js.map",
     "index.html": "/pia-name-generator/index.html",
     "static/css/main.5aff3aa8.chunk.css.map": "/pia-name-generator/static/css/main.5aff3aa8.chunk.css.map",
-    "static/js/2.39dd6bc0.chunk.js.LICENSE.txt": "/pia-name-generator/static/js/2.39dd6bc0.chunk.js.LICENSE.txt"
+    "static/js/2.39dd6bc0.chunk.js.LICENSE.txt": "/pia-name-generator/static/js/2.39dd6bc0.chunk.js.LICENSE.txt",
+    "static/media/scales.4634e0b1.svg": "/pia-name-generator/static/media/scales.4634e0b1.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.9f3b6dcb.js",
     "static/js/2.39dd6bc0.chunk.js",
     "static/css/main.5aff3aa8.chunk.css",
-    "static/js/main.089597bd.chunk.js"
+    "static/js/main.1fa638e8.chunk.js"
   ]
 }
