@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
+import Dropdown from 'react-dropdown';
 
 import './App.css';
 import { generateSlug, decodeSlug, getNameFromSlug } from './slugs.js'
+import { monthsOptions } from './constants.js'
 
 export default function App() {
   return (
@@ -34,16 +36,51 @@ export const useInput = initialValue => {
   };
 };
 
+export const useSelectInput = initialValue => {
+  const [value, setValue] = useState(initialValue);
+
+  return {
+    value,
+    setValue,
+    reset: () => setValue(""),
+    bind: {
+      defaultValue: {value},
+      onChange: event => {
+        console.log(event)
+        setValue(event.value);
+      }
+    }
+  };
+};
 
 function NameForm() {
   let history = useHistory();
   const { value:name, bind:bindName } = useInput('');
-  const { value:birthMonth, bind:bindBirthMonth } = useInput('');
+  const { value:birthMonth, bind:bindBirthMonth } = useSelectInput('');
   const { value:city, bind:bindCity } = useInput('');
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     history.push("/" + generateSlug(name, birthMonth, city));
+  }
+
+  const birthMonthSelectStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px dotted pink',
+      color: state.isSelected ? 'red' : 'blue',
+      padding: 20,
+    }),
+    control: () => ({
+      // none of react-select's styles are passed to <Control />
+      width: 200,
+    }),
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1;
+      const transition = 'opacity 300ms';
+  
+      return { ...provided, opacity, transition };
+    }
   }
 
   return (
@@ -54,7 +91,10 @@ function NameForm() {
       </label>
       <br/>
       <label>
-        Birth month: <input type="number" min="1" max="12" {...bindBirthMonth}/>
+        Birth month: 
+        <span style={{display:"inline-block",width:"10rem", border:"1px solid rgb(118, 118, 118)", borderRadius:"3px", marginLeft:".5rem"}}>
+          <Dropdown options={monthsOptions} {...bindBirthMonth} />
+        </span>
       </label>
       <br/>
       <label>
@@ -96,15 +136,18 @@ export function Name() {
       }).join(' ')
   }
 
-  const Dub = ({name}) => {
+  const Dub = ({dub, name}) => {
       return (
-        <h2>I dub thee 'The {capitalize(name)}'</h2>
+        <div>
+          <p>The verdict is in, {capitalize(name)}! You are</p>
+          <h2>The {capitalize(dub)}</h2>
+        </div>
       )
     }
   
   return (
       <div className="container">
-          <Dub name={getNameFromSlug(slug)} />
+          <Dub dub={getNameFromSlug(slug)} name={name} />
           <Link to="/" >Generate Another</Link>
       </div>
   )
