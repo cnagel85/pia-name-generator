@@ -60,7 +60,3 @@ export const nouns = [
     "Panther",
 ]
 
-export const famous = {
-    "646576696e31323136": "Legal Eagle", // LegalEagle Youtuber
-    "6672616e6b343138": "Strong Arm", // Frank Azar
-}

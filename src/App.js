@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Switch, Route, Link, useParams, useHistory } from "react-router-dom";
 
 import './App.css';
-import { adjectives, nouns, famous } from './constants.js'
-var seedrandom = require('seedrandom');
+import { generateSlug, decodeSlug, getNameFromSlug } from './slugs.js'
 
 export default function App() {
   return (
@@ -35,30 +34,6 @@ export const useInput = initialValue => {
   };
 };
 
-export const hexEncode = (s) => {
-  let res = "";
-  for (let i=0; i<s.length; i++) {
-      res += s.charCodeAt(i).toString(16);
-  }
-  return res
-}
-
-export const hexDecode = (s) => {
-  var res = "";
-  for(let i = 0; i<s.length; i++) {
-      res += String.fromCharCode(parseInt(s[i], 16));
-  }
-  return res;
-}
-
-export const generateSlug = (...args) => {
-  let s = args.map(function(arg, i) {
-    console.log("arg "+i+": ", arg)
-    return arg.toString().toLowerCase();
-  }).join(' ')
-  return btoa(s);
-  return hexEncode(s).toString();
-}
 
 function NameForm() {
   let history = useHistory();
@@ -102,31 +77,18 @@ export function Create() {
   )
 }
 
-function toIntInRange(r, min, max) {
-  console.log("rng: ", r);
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(r * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-}
-
-const getNameFromSlug = (slug) => {
-  if (famous[slug] !== undefined) {
-    return famous[slug]
+export const mapArgs = (args) => {
+  let res = {
+    "name": args[0],
+    "birthMonth": args[1],
+    "city": args[2],
   }
-
-  let rng = seedrandom(slug);
-  let adj = adjectives[toIntInRange(rng(), 1, adjectives.length)]
-  let noun = nouns[toIntInRange(rng(), 1, nouns.length)]
-  return adj + " " + noun
-}
-
-const decodeSlug = (slug) => {
-  return atob(slug);
-  return hexDecode(slug)
+  return res
 }
 
 export function Name() {
-  const {slug} = useParams()
+  const { slug } = useParams()
+  const { name, birthMonth, city } = mapArgs(decodeSlug(slug))
 
   const capitalize = (s) => {
       return s.split(' ').map(function(w) {
@@ -144,7 +106,7 @@ export function Name() {
       <div className="container">
           <Dub name={getNameFromSlug(slug)} />
           <Link to="/" >Generate Another</Link>
-          <p>{decodeSlug(slug)}</p>
+          <p>{name} {birthMonth} {city}</p>
       </div>
   )
 }
