@@ -72,5 +72,5 @@ export const monthsOptions = [
     { label: "September", value: 9},
     { label: "October", value: 10},
     { label: "November", value: 11},
-    { label: "Deccember", value: 12},
+    { label: "December", value: 12},
 ]
